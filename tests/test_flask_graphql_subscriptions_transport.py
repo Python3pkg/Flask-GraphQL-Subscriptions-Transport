@@ -256,7 +256,7 @@ def test_adds_unique_sub_id_to_subscriptions(basic_ss):
                                  'variables': 'baz'}),
                      namespace=ss.namespace)
     # get first item
-    for key, val in ss.connection_subscriptions.items():
+    for key, val in list(ss.connection_subscriptions.items()):
         first_key = key
         first_sub = ss.connection_subscriptions[key]
     del ss.connection_subscriptions[first_key]
@@ -268,7 +268,7 @@ def test_adds_unique_sub_id_to_subscriptions(basic_ss):
                                  'variables': 'baz'}),
                      namespace=ss.namespace)
     # get second item
-    for key, val in ss.connection_subscriptions.items():
+    for key, val in list(ss.connection_subscriptions.items()):
         second_sub = ss.connection_subscriptions[key]
     assert first_sub != second_sub
 
